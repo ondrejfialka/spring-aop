@@ -10,8 +10,9 @@ import org.springframework.stereotype.Component;
 public class DebugInterceptor  {
 
 	//@Around("within(eu.unicorn.hatchery.spring.services..*)")
-	@Around("execution(* eu.unicorn.hatchery.spring.services.*.*(..))")
-	//@Around("execution(public * *(..))")
+	@Around("execution(* eu.unicorn.hatchery.spring.services.*.*(..))")	
+	//@Around("execution(public * eu.unicorn.hatchery.spring.services.*.*(String))")
+	//@Around("execution(public * *..*Running(String))")
     public Object auditMethod(ProceedingJoinPoint jp) throws Throwable {
         String methodName = jp.getSignature().getName();
         System.out.println("Call to " + methodName);
